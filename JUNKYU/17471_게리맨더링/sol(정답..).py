@@ -3,7 +3,6 @@ input = sys.stdin.readline
 
 n = int(input())
 populations = list(map(int, input().split()))
-total_visited = [0] * (1 << n)
 
 graph = [[] for _ in range(n+1)]
 for i in range(1, n+1):
@@ -26,10 +25,6 @@ for i in range(1 << n):
 
     state1 = i
     state2 = i^total_state
-    if total_visited[state1] or total_visited[state2]:
-        continue
-    s1_node = []
-    s2_node = []
     
     visited = [False for _ in range(n+1)]
 
@@ -47,12 +42,8 @@ for i in range(1 << n):
 
     for j in range(1, n+1):
         if not visited[j]:
-            total_visited[state1] = 1
-            total_visited[state2] = 1
             break
     else:
-        total_visited[state1] = 1
-        total_visited[state2] = 1
         p1 = 0
         p2 = 0
         
