@@ -1,7 +1,6 @@
 from collections import deque
 import sys
 input = sys.stdin.readline
-sys.setrecursionlimit(10**5)
 
 get_key = {
     "a": 0,
